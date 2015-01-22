@@ -1,0 +1,166 @@
+/*body{
+	display: flex;
+}*/
+*{
+	margin: 0;
+	padding: 0;
+	/*border: 0;*/
+	font-size: 100%;
+	font-family: 'Indie Flower', cursive;
+}
+
+#black{
+	background-color: #97ccf1;
+	width: 100%;
+	/*max-width: 1000px;*/
+	min-width: 800px;
+	height: 300px;
+	position: absolute;
+	z-index: 1;
+}
+#wrapper{
+	width: 80%;
+	max-width: 1000px;
+	min-width: 800px;
+	height: 1400px;
+	margin: auto;
+	z-index: 2;
+	display: flex;
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+#main{
+	width: 100%;
+	height: 40%;
+	/*margin: auto;*/
+	z-index: 3;
+	display: flex;
+	display: -webkit-flex;
+	-flex-direction: column;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	margin-top: 50px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+#header{
+	font-size: 250%;
+}
+.button{
+	width: 20%;
+}
+#input{
+	width: 20%;
+}
+h2{
+	font-size: 175%;
+}
+p{
+	font-size: 125%;
+	margin-top: 5%;
+}
+#titles{
+	margin-top: 5%;
+}
+#route{
+	margin: 0 auto;
+	width: 55%;
+}
+.gray{
+	/*width: 80%;*/
+	text-align: center;
+	background-color: #97ccf1;
+	border-radius: 5px;
+}
+#info{
+	display: flex;
+	display: -webkit-flex;
+	-flex-direction: column;
+	flex-direction: column;
+	/*justify-content: center;*/
+	align-items: center;
+	width: 100;
+	height: 60%;
+	/*margin: auto;*/
+	/*z-index: 2;*/
+	background-color: white;
+	margin-bottom: 15px;
+	/*margin-top: 50px;*/
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+#what{
+	width: 80%;
+	height: 20%;
+
+}
+#how{
+	width: 80%;
+	height: 20%;
+}
+
+#thought{
+	width: 25%;
+	height: 1px;
+	margin-top: 5%;
+}
+
+.oval-thought-border {
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 150%;
+	position:relative;
+	padding:70px 30px;
+	margin:1em auto 80px;
+	border:10px solid #97ccf1;
+	text-align:center;
+	color:#333;
+	background:#fff;
+	-webkit-border-top-left-radius:240px 140px;
+	-webkit-border-top-right-radius:240px 140px;
+	-webkit-border-bottom-right-radius:240px 140px;
+	-webkit-border-bottom-left-radius:240px 140px;
+	-moz-border-radius:240px / 140px;
+	border-radius:240px / 140px;
+}
+
+/* creates the larger circle */
+.oval-thought-border:before {
+  content:"";
+  position:absolute;
+  z-index:10;
+  bottom:-40px;
+  right:100px;
+  width:25px;
+  height:25px;
+  border:10px solid #97ccf1;
+  background:#fff;
+  /* css3 */
+  -webkit-border-radius:50px;
+  -moz-border-radius:50px;
+  border-radius:50px;
+  /* reduce the damage in FF3.0 */
+  display:block;
+}
+
+/* creates the smaller circle */
+.oval-thought-border:after {
+  content:"";
+  position:absolute;
+  z-index:10;
+  bottom:-60px;
+  right:50px;
+  width:15px;
+  height:15px;
+  border:10px solid #97ccf1;
+  background:#fff;
+  /* css3 */
+  -webkit-border-radius:25px;
+  -moz-border-radius:25px;
+  border-radius:25px;
+  /* reduce the damage in FF3.0 */
+  display:block;
+}

@@ -4,9 +4,54 @@
 	<meta charset="UTF-8">
 	<title>Random Thoughtss</title>
 	<link rel="stylesheet" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	
+	<div id="black"></div>
+
+	<div id="wrapper">
+		<div id="main">
+			<h1 id="header">Random Thoughts</h1>
+			<div id="thought" class="oval-thought-border">
+			<h1 id="filler"></h1>
+			</div>
+			<button id="button2" class="button"> Get Thought</button>
+			<input type="text" method="post" id="input">
+			<button id="button" class="button">Add Thought</button>
+		</div>
+
+		<div id="info">
+			<h2 id="titles">What is the Random Throught API?</h2>
+			<div id="what">
+				<p> The Random Thought API allows you to query it's user-created content using ajax requests. Anyone can add their random thoughts to the databse and the API dishes out a random one. It's funny, crazy, and sometimes downright dangerous. But it's all in good fun. Use is to brighten your day, or even as a fun way to test text in your website!
+			</div>
+			<h2 id="titles">How to use the Random thought API</h2>
+			<div id="how">
+				<p>Using the Random Thought API is easy! Simply send a get request to the following url and we'll send you back an JSON object with a random thought!</p>
+				<div class="gray" id="route">
+				<p> localhost:3000 </p>
+				</div>
+				<!-- <pre><code>
+					localhost:3000/
+				</code></pre>	 -->
+			</div>
+			<h2 id="titles">What is the exact JSON object that this API sends?</h2>
+			<div id="object">
+				<p>Here is the JSON object that the API sends:</p>
+				<div id="json" class="gray">
+				<pre><code >
+{                                
+	thought: "Thought is here"   
+}                                    
+				</code></pre>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
 	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
