@@ -25,9 +25,11 @@ app.get('/', function(req, res){
 
 app.post('/add', function(req, res){
 	var data = req.body.info;
-	console.log(data);
-	thoughts.push(data);
-	console.log(thoughts);
+	if(data != "" && data.length < 30){
+		console.log(data);
+		thoughts.push(data);
+		console.log(thoughts);
+	}
 });
 
 app.listen(3000);
