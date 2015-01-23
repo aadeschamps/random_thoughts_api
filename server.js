@@ -8,11 +8,11 @@ app.use(bodyParser());
 
 var thoughts = ["This API is awesome", "I like eggs"];
 
-app.get('/info', function(req, res){
+app.get('/', function(req, res){
 	res.render("index.ejs",{});
 });
 
-app.get('/', function(req, res){
+app.get('/thought', function(req, res){
 	var rand = Math.floor(Math.random() * thoughts.length)
 	var thought = thoughts[rand];
 	var response = {
