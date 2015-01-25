@@ -11,17 +11,6 @@ app.use(bodyParser());
 
 var thoughts = [];
 var items;
-var first = {
-	thought: "This is awesome!",
-	timestamp: moment().format()
-}
-var second = {
-	thought: "I like eggs",
-	timestamp: moment().format()
-}
-db.put("1", first);
-db.put("2", second);
-
 db.createReadStream()
 	.on('data', function(data){
 		// parsed = JSON.parse(data.value);
@@ -52,13 +41,36 @@ app.get('/thought', function(req, res){
 	res.send(response);
 });
 
+app.get('/thought/search', function(req, res){
+	var keyword = req.query.keyword.toUpperCase();
+	var key_thoughts;
+	console.log(keyword);
+	if(keyword != undefined){
+		key_thoughts = searchKeywords(keyword);
+	}
+	console.log(key_thoughts);
+	if(key_thoughts.lenght > 0){
+		var response = {
+			results: key_thoughts,
+			status: "Success"
+		}
+	}else{
+		var response = {
+			results: key_thoughts,
+			status: "No Matches"
+		}
+	}
+	res.send(response);
+});
+
+
 app.get('/all', function(req, res){
 	var response = {
 		results: thoughts,
 		status: "Success"
 	}
 	res.send(response);
-})
+});
 
 app.post('/add', function(req, res){
 	var data = req.body.info;
@@ -77,3 +89,20 @@ app.post('/add', function(req, res){
 });
 
 app.listen(3000);
+
+
+function searchKeywords( keyword ){
+	array = [];
+	thoughts.forEach(function(elem){
+		words = elem.thought.split(" ");
+		var exists = false;
+		words.forEach(function(word){
+			console.log(word);
+			if ( word.toUpperCase() === keyword && !exists){
+				array.push(elem);
+				exists = true;
+			}
+		})
+	})
+	return array;
+}
