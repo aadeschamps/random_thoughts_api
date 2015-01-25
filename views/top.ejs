@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Top Words</title>
+</head>
+<body>
+	
+	
+	<script>
+
+		var url = "/all";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", url);
+		xhr.addEventListener('load',function(){
+			var d = xhr.responseText;
+			var parsed = JSON.parse(d);
+			
+		});
+		xhr.send();
+
+	</script>
+</body>
+</html>
