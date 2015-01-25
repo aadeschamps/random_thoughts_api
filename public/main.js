@@ -32,7 +32,7 @@ button2.addEventListener("click", function(e){
 	xhr.addEventListener('load',function(){ 
 		var d = xhr.responseText;
 		var parsed = JSON.parse(d);
-		h1.innerHTML = parsed.thought;
+		h1.innerHTML = parsed.results.thought;
 	});
 	xhr.send();
 });
@@ -44,7 +44,7 @@ xhr.open("GET", url);
 xhr.addEventListener('load',function(){
 	var d = xhr.responseText;
 	var parsed = JSON.parse(d);
-	h1.innerHTML = parsed.thought;
+	h1.innerHTML = parsed.results.thought;
 });
 xhr.send();
 
