@@ -5,7 +5,7 @@ var h1 = document.querySelector("#filler");
 var button2 = document.querySelector("#button2");
 
 button.addEventListener("click", function(e){
-	var url = "/add";
+	var url = "/thought";
 	var info = input.value;
 	input.value = "";
 	if(info != "" && info.length < 30){
@@ -32,7 +32,7 @@ button2.addEventListener("click", function(e){
 	xhr.addEventListener('load',function(){ 
 		var d = xhr.responseText;
 		var parsed = JSON.parse(d);
-		h1.innerHTML = parsed.results.thought;
+		h1.innerHTML = parsed.results[0].thought;
 	});
 	xhr.send();
 });
@@ -44,7 +44,7 @@ xhr.open("GET", url);
 xhr.addEventListener('load',function(){
 	var d = xhr.responseText;
 	var parsed = JSON.parse(d);
-	h1.innerHTML = parsed.results.thought;
+	h1.innerHTML = parsed.results[0].thought;
 });
 xhr.send();
 

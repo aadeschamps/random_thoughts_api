@@ -16,7 +16,6 @@ db.createReadStream()
 	.on('data', function(data){
 		// parsed = JSON.parse(data.value);
 		thoughts.push(data.value);
-		console.log(data);
 		items = parseInt(data.key);
 	})
 	.on('error', function(err){
@@ -28,32 +27,26 @@ db.createReadStream()
 		console.log( sortTop() );
 	});
 
-// db.createReadStream()
-// 	.on('data', function(data){
-// 		// parsed = JSON.parse(data.value);
-// 		thoughts.push(data.value);
-// 		console.log(data);
-// 		items = parseInt(data.key);
-// 	})
-// 	.on('error', function(err){
-// 		console.log("Error reading DB");
-// 	})
-// 	.on('end', function(){
-// 		console.log(thoughts);
-// 		console.log(items);
-// 		// console.log( sortTop() );
-// 	});
-
 
 app.get('/', function(req, res){
 	res.render("index.ejs",{});
 });
 
 app.get('/thought', function(req, res){
-	var rand = Math.floor(Math.random() * thoughts.length)
-	var thought = thoughts[rand];
+	var amount = req.query.amount;
+	if(amount === undefined){
+		amount = 1;
+	}else{
+		amount = parseInt(amount);
+	}
+	var results = []
+	for(var i = 0; i < amount; i++) {
+		var rand = Math.floor(Math.random() * thoughts.length)
+		var thought = thoughts[rand];
+		results.push(thought);
+	};
 	var response = {
-		results: thought,
+		results: results,
 		status: "Success"
 	}
 	res.send(response);
@@ -62,7 +55,6 @@ app.get('/thought', function(req, res){
 app.get('/thought/search', function(req, res){
 	var keyword = req.query.keyword;
 	var key_thoughts = [];
-	console.log(keyword);
 	if(keyword != undefined){
 		key_thoughts = searchKeywords(keyword.toUpperCase());
 	}
@@ -81,12 +73,21 @@ app.get('/thought/search', function(req, res){
 	res.send(response);
 });
 
-app.get('/top', function(){
-	res.render('top.ejs', {});
+app.get('/thought/word_freq', function(){
+	var amount = req.query.amount;
+	if(amount != undefined){
+		var frequencies = 
+	}else{
+		var response = {
+			results: key_thoughts,
+			status: "Must have amount param"
+		} 
+	}
+	res.render(response);
 });
 
 
-app.get('/all', function(req, res){
+app.get('/thoughts', function(req, res){
 	var response = {
 		results: thoughts,
 		status: "Success"
@@ -94,7 +95,7 @@ app.get('/all', function(req, res){
 	res.send(response);
 });
 
-app.post('/add', function(req, res){
+app.post('/thought', function(req, res){
 	var data = req.body.info;
 	if(data != "" && data.length < 30){
 		var input = {
@@ -137,11 +138,9 @@ function sortTop(){
 			var contains = false;
 			word_freq.forEach(function(match){
 				if( match.word === word){
-					console.log("hey");
 					contains = true;
 					match.times+=1;
 				}
-				console.log(match.word);
 				// console.log(word);
 			});
 			if(!contains){
@@ -149,20 +148,12 @@ function sortTop(){
 			}
 		});	
 	});
+	word_freq.sort(function(a,b){
+		return b.times - a.times;
+	})
 	return word_freq;
 };
 
-// function containts(array, item){
-// 	var contained = false;
-// 	for( elem in array){
-// 		if( item === elem.word ){
-// 			contained = true;
-// 		}
-// 	}
-// 	return contained;
-// }
+function sortObjects(sorting){
 
-// {
-// 	word = "something",
-// 	times = "number"
-// }
+}
