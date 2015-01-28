@@ -76,19 +76,19 @@ app.get('/thought/word_freq', function(req, res){
 	var amount = req.query.amount;
 	var frequencies = sortTop();
 	if(amount === undefined){
-		amount = 
-	
-	var top = frequencies.slice(0, parseInt(amount));
-	console.log(top);
-	var response = {
-		results: top,
-		status: "Success"
+		amount = frequencies.length;
 	}
-
+	console.log(frequencies.length)
+	if(amount <= frequencies.length && amount <= 50){
+		var top = frequencies.slice(0, parseInt(amount));
+		var response = {
+			results: top,
+			status: "Success"
+		};
 	}else{
 		var response = {
 			results: [],
-			status: "Must have amount param"
+			status: "Maximum amount is 50"
 		} 
 	}
 	res.json(response);
