@@ -24,7 +24,6 @@ db.createReadStream()
 	.on('end', function(){
 		// console.log(thoughts);
 		// console.log(items);
-		console.log( sortTop() );
 	});
 
 
@@ -73,17 +72,26 @@ app.get('/thought/search', function(req, res){
 	res.send(response);
 });
 
-app.get('/thought/word_freq', function(){
+app.get('/thought/word_freq', function(req, res){
 	var amount = req.query.amount;
-	if(amount != undefined){
-		var frequencies = 
+	var frequencies = sortTop();
+	if(amount === undefined){
+		amount = 
+	
+	var top = frequencies.slice(0, parseInt(amount));
+	console.log(top);
+	var response = {
+		results: top,
+		status: "Success"
+	}
+
 	}else{
 		var response = {
-			results: key_thoughts,
+			results: [],
 			status: "Must have amount param"
 		} 
 	}
-	res.render(response);
+	res.json(response);
 });
 
 
