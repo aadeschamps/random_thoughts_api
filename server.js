@@ -31,6 +31,10 @@ app.get('/', function(req, res){
 	res.render("index.ejs",{});
 });
 
+app.get('/demo', function(req,res){
+	res.render('top.ejs', {});
+});
+
 app.get('/thought', function(req, res){
 	var amount = req.query.amount;
 	if(amount === undefined){
