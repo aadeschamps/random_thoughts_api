@@ -4,7 +4,7 @@ var ejs = require('ejs');
 var moment = require("moment")
 var bodyParser = require('body-parser');
 var levelup = require('level');
-var db = levelup('./models/mydb', { valueEncoding:'json' } );
+var db = levelup('./db/mydb', { valueEncoding:'json' } );
 // var wordsDb = levelup('./models/words');
 var app = express();
 app.use(express.static(__dirname + '/public'));
@@ -112,7 +112,7 @@ app.post('/thought', function(req, res){
 	if(data != "" && data.length < 30){
 		var input = {
 			thought: data,
-			timestamp: moment().format()
+			time_stamp: moment().format()
 		}
 		thoughts.push(input);
 		items++;

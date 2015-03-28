@@ -44,6 +44,7 @@ xhr.open("GET", url);
 xhr.addEventListener('load',function(){
 	var d = xhr.responseText;
 	var parsed = JSON.parse(d);
+	console.log(parsed);
 	h1.innerHTML = parsed.results[0].thought;
 });
 xhr.send();
