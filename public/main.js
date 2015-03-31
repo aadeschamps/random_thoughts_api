@@ -18,7 +18,6 @@ button.addEventListener("click", function(e){
 		xhr.addEventListener('load',function(e){
 			console.log("sucess"); 	
 		});
-		console.log(j_msg);
 		xhr.send(j_msg);
 	}else{
 		alert("Entry needs to be between 1 and 30 characters");
@@ -38,14 +37,14 @@ button2.addEventListener("click", function(e){
 });
 
 
-var url = "/thoughts";
-var xhr = new XMLHttpRequest();
-xhr.open("GET", url);
-xhr.addEventListener('load',function(){
-	var d = xhr.responseText;
-	var parsed = JSON.parse(d);
-	console.log(parsed);
-	h1.innerHTML = parsed.results[0].thought;
-});
-xhr.send();
-
+(function(){
+	var url = "/thoughts";
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", url);
+	xhr.addEventListener('load',function(){
+		var d = xhr.responseText;
+		var parsed = JSON.parse(d);
+		h1.innerHTML = parsed.results[0].thought;
+	});
+	xhr.send();
+})();

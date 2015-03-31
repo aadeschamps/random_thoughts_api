@@ -8,7 +8,7 @@ var express = require('express'),
 	app = express(),
 	mongoose = require('./models/connection'),
 	logger = require('./lib/middleware/logger');
-	
+
 // import route files
 var thoughts = require('./routes/thoughts')
 
@@ -26,6 +26,7 @@ app.get('/', function(req, res){
 });
 
 
+// start server on port 3000
 app.listen(3000, function(){
 	console.log('listening on port 3000');
 });

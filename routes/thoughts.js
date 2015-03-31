@@ -5,7 +5,7 @@ var express = require('express'),
 	sortTop = require('../lib/helpers/sort_helper'),
 	normalize = require('../lib/helpers/normalize_thoughts_helper')
 	mongoose = require('mongoose'),
-	Thoughts = require('../models/thought');
+	Thoughts = require('../models/thought')(mongoose);
 
 
 router.get('/', function(req, res){
