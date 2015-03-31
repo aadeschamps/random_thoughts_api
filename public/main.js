@@ -5,7 +5,7 @@ var h1 = document.querySelector("#filler");
 var button2 = document.querySelector("#button2");
 
 button.addEventListener("click", function(e){
-	var url = "/thought";
+	var url = "/thoughts";
 	var info = input.value;
 	input.value = "";
 	if(info != "" && info.length < 30){
@@ -38,7 +38,7 @@ button2.addEventListener("click", function(e){
 });
 
 
-var url = "/thought";
+var url = "/thoughts";
 var xhr = new XMLHttpRequest();
 xhr.open("GET", url);
 xhr.addEventListener('load',function(){

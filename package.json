@@ -10,12 +10,13 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "express": "~4.11.0",
-    "ejs": "~2.2.1",
     "body-parser": "~1.10.1",
     "chai": "~1.10.0",
-    "moment": "~2.9.0",
+    "ejs": "~2.2.1",
+    "express": "~4.11.0",
     "level": "~0.18.0",
+    "moment": "~2.9.0",
+    "mongoose": "^4.0.1",
     "sequelize": "~2.0.0-rc8",
     "sqlite3": "~3.0.4"
   }
