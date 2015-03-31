@@ -1,18 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var moment = require("moment");
-var searchKeywords = require('../helpers/search_helper');
-var sortTop = require('../helpers/sort_helper.js')
-console.log(searchKeywords);
-var thoughts = ['something'];
+var express = require('express'),
+	router = express.Router(),
+	moment = require("moment"),
+	searchKeywords = require('../lib/helpers/search_helper'),
+	sortTop = require('../lib/helpers/sort_helper.js'),
+	thoughts = [{thought: 'something else'}];
 
-// router.get('/', function(req, res){
-// 	var response = {
-// 		results: thoughts,
-// 		status: "Success"
-// 	}
-// 	res.send(response);
-// });
+
 
 router.get('/', function(req, res){
 	var amount = req.query.amount;
@@ -53,7 +46,7 @@ router.get('/search', function(req, res){
 	var keyword = req.query.keyword;
 	var key_thoughts = [];
 	if(keyword != undefined){
-		key_thoughts = searchKeywords(keyword.toUpperCase());
+		key_thoughts = searchKeywords(keyword.toUpperCase(), thoughts);
 	}
 	console.log(key_thoughts);
 	if(key_thoughts.length > 0){
@@ -70,9 +63,10 @@ router.get('/search', function(req, res){
 	res.send(response);
 });
 
+
 router.get('/word_freq', function(req, res){
 	var amount = req.query.amount;
-	var frequencies = sortTop();
+	var frequencies = sortTop(thoughts);
 	if(amount === undefined){
 		amount = frequencies.length;
 	}
