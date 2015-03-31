@@ -6,10 +6,9 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	levelup = require('level'),
 	app = express(),
-	thought_model = require('./models/thoughts'),
+	mongoose = require('./models/connection'),
 	logger = require('./lib/middleware/logger');
-
-
+	
 // import route files
 var thoughts = require('./routes/thoughts')
 

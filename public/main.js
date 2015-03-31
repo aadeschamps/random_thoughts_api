@@ -26,7 +26,7 @@ button.addEventListener("click", function(e){
 });
 
 button2.addEventListener("click", function(e){
-	var url = "/thought";
+	var url = "/thoughts";
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", url);
 	xhr.addEventListener('load',function(){ 
