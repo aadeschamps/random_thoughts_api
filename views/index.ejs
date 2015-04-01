@@ -21,26 +21,45 @@
 		</div>
 
 		<div id="info">
-			<h2 id="titles">What is the Random Thought API?</h2>
-			<div id="what">
+			<h2 class="titles">What is the Random Thought API?</h2>
+			<div id="what" class='infos'>
 				<p> The Random Thought API allows you to query it's user-created content using ajax requests. Anyone can add their random thoughts to the databse and the API dishes out a random one. It's funny, crazy, and sometimes downright dangerous. But it's all in good fun. Use is to brighten your day, or even as a fun way to test text in your website!
 			</div>
-			<h2 id="titles">How to use the Random thought API</h2>
-			<div id="how">
-				<p>Using the Random Thought API is easy! Simply send a get request to the following url and we'll send you back an JSON object with a random thought!</p>
-				<div class="gray" id="route">
-				<p> http://randomthoughts.link/thought </p>
+
+			<h2 class="titles">How to use the Random thought API</h2>
+			<div id="how" class='infos'>
+				<p>Using the Random Thought API is easy! Simply send a get request to the following url and we'll send you back an JSON object with a random thought! Here is the standard API end point:</p>
+				<div class="gray route">
+					<p> http://randomthoughts.link/thoughts </p>
+				</div>
+				
+			</div>
+
+			<h2 class="titles">Specifying how many thoughts you want</h2>
+			<div id="amount" class="infos">
+				<p>You can specify how many thoughts you want to get by specifying the "amount" query parameter in the url. Here is an example:</p>
+				<div class="gray route">
+					<p> http://randomthoughts.link/thoughts?amount=2 </p>
 				</div>
 			</div>
-			<h2 id="titles">What is the exact JSON object that this API sends?</h2>
-			<div id="object">
+
+			<h2 class="titles">Searching for key words</h2>
+			<div id="search" class="infos">
+				<p>You can return thoughts with specified key words using the search route and specifying the keywords query parameter. Here is an example: </p>
+				<div class="gray route">
+					<p> http://randomthoughts.link/thoughts/search?keyword=blah </p>
+				</div>
+			</div>
+
+			<h2 class="titles">What is the exact JSON object that this API sends?</h2>
+			<div id="object" class='infos'>
 				<p>Here is the JSON object that the API sends:</p>
-				<div id="json" class="gray">
+				<div id="json" class="gray route">
 				<pre><code>
-{	results:[
+{	results: [
 		{                         
 			"thought": "Thought is here"
-			"timeStamp": "time"
+			"created_at": "time"
 		}
 	],
 	status:{
@@ -49,7 +68,38 @@
 }
 				</code></pre>
 				</div>
+				<p>The results array will be populated with how many thougts are being given.</p>
 			</div>
+
+			<h2 class="titles">Getting word frequencies for thoughts</h2>
+			<div id="search" class="infos">
+				<p>You can return thoughts with specified key words using the search route and specifying the keywords query parameter. Here is an example: </p>
+				<div class="gray route">
+					<p> http://randomthoughts.link/thoughts/word_freq </p>
+				</div>
+				<p>By default, this request will get the top 50 words. You can request to get a smaller number of words by passing an "amount" query parameter with the request. However, 50 is the most you can get.</p>
+			</div>
+
+			<h2 class="titles">The JSON that will be returned from frequencies</h2>
+			<div id="req" class='infos'>
+				<p>Here is the JSON object that the API sends for a word frequency request:</p>
+				<div id="json" class="gray route">
+				<pre><code>
+{	results: [
+		{                         
+			"word": "Word"
+			"times": "number of times appears"
+		}
+	],
+	status:{
+		status: "Successfull"
+	}
+}
+				</code></pre>
+				</div>
+				<p>The results array will be populated with how many words have been asked for.</p>
+			</div>
+
 		</div>
 
 	</div>

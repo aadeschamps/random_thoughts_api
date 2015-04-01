@@ -1,12 +1,12 @@
 var express = require('express'),
 	router = express.Router(),
-	moment = require("moment"),
 	searchKeywords = require('../lib/helpers/search_helper'),
 	sortTop = require('../lib/helpers/sort_helper'),
 	normalize = require('../lib/helpers/normalize_thoughts_helper')
 	mongoose = require('mongoose'),
 	Thoughts = require('../models/thought')(mongoose);
 
+// console.log(mongoose);
 
 router.get('/', function(req, res){
 	var amount = req.query.amount;

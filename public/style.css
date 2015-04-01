@@ -22,9 +22,11 @@
 	width: 80%;
 	max-width: 1000px;
 	min-width: 800px;
-	height: 1200px;
-	margin: auto;
+	height: 3100px;
+	margin: 0 auto;
 	z-index: 2;
+	/*position: absolute;
+	display: block;*/
 	display: flex;
 	display: -webkit-flex;
 	-webkit-flex-direction: column;
@@ -32,7 +34,7 @@
 }
 #main{
 	width: 100%;
-	height: 30%;
+	height: 550px;
 	/*margin: auto;*/
 	z-index: 3;
 	display: flex;
@@ -40,7 +42,7 @@
 	-webkit-flex-direction: column;
 	flex-direction: column;
 	justify-content: center;
-	-webkit-justify-content: center
+	-webkit-justify-content: center;
 	align-items: center;
 	-webkit-align-items: center;
 	background-color: white;
@@ -52,6 +54,7 @@
 }
 .button{
 	width: 20%;
+	/*height: 200px;*/
 }
 #input{
 	width: 20%;
@@ -63,10 +66,10 @@ p{
 	font-size: 125%;
 	margin-top: 5%;
 }
-#titles{
+.titles{
 	margin-top: 5%;
 }
-#route{
+.route{
 	margin: 0 auto;
 	width: 55%;
 }
@@ -85,7 +88,7 @@ p{
 	align-items: center;
 	-flex-align-items: center;
 	width: 100;
-	height: 70%;
+	height: 2500px;
 	/*margin: auto;*/
 	/*z-index: 2;*/
 	background-color: white;
@@ -115,14 +118,12 @@ p{
 	border: 1px solid black;
 }
 
-#what{
+.infos{
 	width: 80%;
-	height: 20%;
-
 }
-#how{
-	width: 80%;
-	height: 10%;
+
+.infos p {
+	text-align: center;
 }
 
 #thought{
@@ -130,6 +131,10 @@ p{
 	height: 1px;
 	margin-top: 5%;
 }
+
+
+
+
 
 .oval-thought-border {
 	display: flex;

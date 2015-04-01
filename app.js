@@ -11,7 +11,7 @@ var express = require('express'),
 
 // import route files
 var thoughts = require('./routes/thoughts')
-
+// console.log(mongoose);
 // initiate middlewares
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());
