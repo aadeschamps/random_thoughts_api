@@ -13,19 +13,21 @@ router.get('/', function(req, res){
 	if(amount === undefined){
 		amount = 1;
 	}else{
-		amount = parseInt(amount);
+		amount = parseInt(amount) < 50 ? parseInt(amount) : 50;
 	}
 	Thoughts.find(function(err, thoughts){
 		if (err) {
 			console.log(err);
 		}else{
 			thoughts = normalize(thoughts);
-			console.log(thoughts[2].created_at);
 			var results = 	[]
 			for(var i = 0; i < amount; i++) {
 				var rand = Math.floor(Math.random() * thoughts.length)
 				var thought = thoughts[rand];
-				results.push(thought);
+				if(thought){
+					results.push(thought);
+					thoughts.splice(rand,1);
+				}
 			};
 			var response = {
 				results: results,
