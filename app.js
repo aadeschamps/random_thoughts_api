@@ -26,9 +26,10 @@ app.get('/', function(req, res){
 });
 
 
-// start server on port 3000
-app.listen(3000, function(){
-	console.log('listening on port 3000');
+// start server on port specified
+var port = parseInt(process.argv[2]) || 3000;
+app.listen(port, function(){
+	console.log('listening on port ' + port);
 });
 
 
