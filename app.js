@@ -7,6 +7,7 @@ var express = require('express'),
 	levelup = require('level'),
 	app = express(),
 	mongoose = require('./models/connection'),
+	cors = require('cors');
 	logger = require('./lib/middleware/logger');
 
 // import route files
@@ -16,6 +17,7 @@ var thoughts = require('./routes/thoughts')
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());
 app.use(logger);
+app.use(cors);
 
 // mount route files
 app.use('/thoughts', thoughts);
