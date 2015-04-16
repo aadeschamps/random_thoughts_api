@@ -17,7 +17,7 @@ var thoughts = require('./routes/thoughts')
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());
 app.use(logger);
-app.use(cors);
+app.use(cors());
 
 // mount route files
 app.use('/thoughts', thoughts);
